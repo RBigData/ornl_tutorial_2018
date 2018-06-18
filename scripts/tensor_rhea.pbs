@@ -9,23 +9,18 @@
 module load r/3.4.2
 module load hdf5
 
-# copy files to Lustre (assumes in home dir, change as needed) 
 cp -p ~/tensor.r ~/function_def.r ~/tensor_rhea.pbs $MEMBERWORK/your_account
 cd $MEMBERWORK/your_account
 
-# optional mesh subset selection
-M_FIRST=0
-M_LAST=0
-
 #    mpirun -n ## Rscript code.r pwd window center maxplots first last
-time mpirun -n 128 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 64 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 32 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 16 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 8 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 4 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 2 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
-time mpirun -n 1 Rscript tensor.r $(pwd) 41 370 24 $M_FIRST $M_LAST
+time mpirun -n 128 Rscript tensor.r $(pwd) 41 370 24
+time mpirun -n 64 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 32 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 16 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 8 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 4 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 2 Rscript tensor.r $(pwd) 41 370 24 
+time mpirun -n 1 Rscript tensor.r $(pwd) 41 370 24 
 
 
 
