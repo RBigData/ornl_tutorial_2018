@@ -9,10 +9,10 @@
 module load r/3.4.2
 module load hdf5
 
-cp -p ~/tensor.r ~/function_def.r ~/tensor_rhea.pbs $MEMBERWORK/your_account
+cp -p ~/tensor.r ~/function_def.r $MEMBERWORK/your_account
 cd $MEMBERWORK/your_account
 
-#    mpirun -n ## Rscript code.r pwd window center maxplots first last
+#    mpirun -n ## Rscript code.r pwd window center maxplots
 time mpirun -n 128 Rscript tensor.r $(pwd) 41 370 24
 time mpirun -n 64 Rscript tensor.r $(pwd) 41 370 24 
 time mpirun -n 32 Rscript tensor.r $(pwd) 41 370 24 
